@@ -1,7 +1,6 @@
-local function ExpandObject(object, object_SIZE)
+local function ExpandObject(object, endSize)
 	local duration = 0.3
 	local startSize = object.Size
-	local endSize = Vector3.new(object_SIZE, object_SIZE, object_SIZE)
 	local startTime = tick()
 
 	while tick() - startTime < duration do

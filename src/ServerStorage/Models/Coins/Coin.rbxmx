@@ -2,7 +2,7 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Model" referent="RBX7A49497086E348678A3264B295E0C8E7">
+	<Item class="Model" referent="RBXB356B5E4DFED4720A1705A8C170AE9B0">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
@@ -37,7 +37,7 @@
 			<BinaryString name="Tags"></BinaryString>
 			<OptionalCoordinateFrame name="WorldPivotData"></OptionalCoordinateFrame>
 		</Properties>
-		<Item class="MeshPart" referent="RBXEE1B54F52B1047B6B1B9867A351AB61D">
+		<Item class="MeshPart" referent="RBXE8BE09A6419A42ECB5C576CFF3AA7060">
 			<Properties>
 				<SharedString name="AeroMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
 				<bool name="Anchored">true</bool>
@@ -52,9 +52,9 @@
 				<token name="BottomSurface">0</token>
 				<token name="BottomSurfaceInput">0</token>
 				<CoordinateFrame name="CFrame">
-					<X>-49</X>
-					<Y>1.58000183</Y>
-					<Z>114</Z>
+					<X>-35.7764893</X>
+					<Y>5.58000183</Y>
+					<Z>91</Z>
 					<R00>0</R00>
 					<R01>0</R01>
 					<R02>-0.99999994</R02>
@@ -170,7 +170,7 @@
 					<Z>0.553000033</Z>
 				</Vector3>
 			</Properties>
-			<Item class="Decal" referent="RBX373F67C2174A45F8A974157285CF8966">
+			<Item class="Decal" referent="RBX50E299799FF248C8A6399AE9DD49B203">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
@@ -189,7 +189,7 @@
 					<int name="ZIndex">1</int>
 				</Properties>
 			</Item>
-			<Item class="Decal" referent="RBX98834E023C3F49D79ECCDF7E7ED430C1">
+			<Item class="Decal" referent="RBX1948475558BB4763A6050C9659FB4471">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>

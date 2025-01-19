@@ -1,6 +1,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ShrinkObject = require(ReplicatedStorage.ShrinkObject)
 local ExpandObject = require(ReplicatedStorage.ExpandObject)
+local GetRandomPosition = require(ReplicatedStorage.GetRandomPosition)
 
 local ServerStorage = game:GetService("ServerStorage")
 local Players = game:GetService("Players")
@@ -8,34 +9,34 @@ local Players = game:GetService("Players")
 local Floor = game.Workspace.Floor.floor
 
 local COIN_COUNT = 50
-local COIN_SIZE = 1.5 --Need fix coin size for be like a real coin
+local COIN_SIZE = 1.5
 
 local coins = {}
 
-local function getRandomPosition()
-	local floorSize = Floor.Size
-	local floorPosition = Floor.Position
-	local randomX = math.random(floorPosition.X - floorSize.X / 2, floorPosition.X + floorSize.X / 2)
-	local randomZ = math.random(floorPosition.Z - floorSize.Z / 2, floorPosition.Z + floorSize.Z / 2)
-	local yPosition = floorPosition.Y + floorSize.Y / 2 + 3 / 2
-
-	return Vector3.new(randomX, yPosition, randomZ)
-end
-
 local function moveCoin(Coin)
-	Coin.Position = getRandomPosition()
+	Coin.Position = GetRandomPosition(COIN_SIZE)
 	Coin.Transparency = 0
 end
 
 local function createCoin()
 	if #coins < COIN_COUNT then
-		local coin = ServerStorage.Models.ModelsCoin.Coin["Coin"]:Clone()
-		coin.Size = Vector3.new(COIN_SIZE, COIN_SIZE, COIN_SIZE)
+		local coin = ServerStorage.Models.Coins.Coin["Coin"]:Clone()
+		coin.Size = Vector3.new(COIN_SIZE, COIN_SIZE, 0.2)
 		coin.Anchored = true
 		coin.CanCollide = false
-		coin.Position = getRandomPosition()
+		coin.Position = GetRandomPosition(COIN_SIZE)
 		coin.Parent = Floor
 
+		for _, child in pairs(coin:GetDescendants()) do
+			if child:IsA("Decal") then
+				print("Decal Face:", child.Face) -- Verifica a face aplicada
+				child.Face = Enum.NormalId.Front -- Ajuste para a face frontal, se necessário
+			end
+		end
+		
+		
+
+		local endSize = coin.Size
 		local touchConnection = nil
 		local Debounce = false
 
@@ -62,7 +63,7 @@ local function createCoin()
 					task.delay(5, function()
 						moveCoin(coin)
 						Debounce = false
-						ExpandObject(coin, COIN_SIZE)
+						ExpandObject(coin, endSize)
 						touchConnection = coin.Touched:Connect(onTouch)
 					end)
 				end
