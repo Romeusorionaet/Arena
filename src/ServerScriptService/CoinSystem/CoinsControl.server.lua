@@ -8,7 +8,7 @@ local Players = game:GetService("Players")
 
 local Floor = game.Workspace.Floor.floor
 
-local COIN_COUNT = 50
+local COIN_COUNT = 25
 local COIN_SIZE = 1.5
 
 local coins = {}
@@ -26,15 +26,6 @@ local function createCoin()
 		coin.CanCollide = false
 		coin.Position = GetRandomPosition(COIN_SIZE)
 		coin.Parent = Floor
-
-		for _, child in pairs(coin:GetDescendants()) do
-			if child:IsA("Decal") then
-				print("Decal Face:", child.Face) -- Verifica a face aplicada
-				child.Face = Enum.NormalId.Front -- Ajuste para a face frontal, se necessário
-			end
-		end
-		
-		
 
 		local endSize = coin.Size
 		local touchConnection = nil
